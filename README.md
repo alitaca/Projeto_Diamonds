@@ -26,7 +26,7 @@ Jupiter Notebook
 A base de dados a ser utilizada para a criação do modelo é dada conforme a seguir:
 
 
-| Column  | Description  |
+| Coluna  | Descrição  |
 |---|---|
 | Price  | Price in US dollars (326-18,823)  |
 | Carat  | Weight of the diamond (0.2--5.01)  |
@@ -39,13 +39,23 @@ A base de dados a ser utilizada para a criação do modelo é dada conforme a se
 | Depth  | Total depth percentage = z / mean(x, y) = 2 * z / (x + y) (43--79)  |
 | Table  | Width of top of diamond relative to widest point (43--95)  |
 
+### Tratamento
 
+Para poder utilizar um modelo de aprendizado de máquina, é necessário transformar as colunas 'Cut', 'Color' e 'Clarity' em dados numéricos. Uma vez que essas variáveis possuem uma ordem definida, os dados foram transformados em números discretos, onde o zero representa a categoria mais baixa, e as outras seguem em ordem crescente. 
 
 ### Modelo de regressão linear
 
+Para o modelo de regressão linear, a primeira meta foi encontrar as colunas do dataset de treinamento que poderiam descrever melhor a coluna 'price'. Os testes iniciais apontaram que o melhor resultado era apresentado quando se excluíam apenas as colunas 'depth' e 'table (erro de 1288,26). Entretanto, ao desconsiderar também as colunas 'x', 'y' e 'z', o erro era muito próximo (erro: 1294,30).
+
+A partir daí, as melhorias do modelo seriam baseadas em tratar os outliers. A primeira tentativa foi tratar os outliers da coluna 'carat'. Porém, o tratamento piorou as estimativas de preço (erro: 1587,66).
 
 ### Modelo de recomendação
 
+Durante o desenvolvimento do modelo de regressão linear, notou-se que havia uma dificuldade de tratar os outliers. Além disso, pode-se dizer que os outliers podem sim ser uma boa estimativa para preços de diamantes.
+Uma das soluções pensadas para solucionar o problema foi aplicar um modelo de recomendação. Para otimizar o cálculo, foi utilizada a função *distance.cdist* da biblioteca *scipy.spatial*.
+Dispensando o tratamento de outliers, a primeira melhoria do modelo foi baseada na escolha das colunas que resultasse no menor valor de erro. A melhor combinação de colunas encontradas deu-se excluindo apenas as colunas 'depth' e 'table'.
+Então, foi a vez de se determinar qual a melhor forma de calcular o preço a partir da matriz de recomendação. O método escolhido consiste em calcular a média dos preços dos 5 diamantes mais recomendados pelo algoritmo.
+Por fim, foi a vez de se testar as métricas de distância do algoritmo de recomendação. Após os testes, a distância euclidiana produziu o melhor resultado.
 
 ## Construído com
 
