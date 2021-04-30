@@ -16,8 +16,8 @@ O site que faz a avaliação dos resultados está em:
 
 ### Pré-requisitos
 
-Navegador Web
-Jupiter Notebook
+* Navegador Web
+* Jupyter Notebook
 
 ## Desenvolvimento
 
@@ -66,7 +66,7 @@ Por fim, foi a vez de se testar as métricas de distância do algoritmo de recom
 As ferramentas utilizadas para criar o projeto
 
 * [Python](https://www.python.org/) - Usado no desenvolvimento do projeto
-* [Jupiter Notebook](https://jupyter.org/) - Usado no desenvolvimento do projeto
+* [Jupyter Notebook](https://jupyter.org/) - Usado no desenvolvimento do projeto
 
 ### Bibliotecas
 
