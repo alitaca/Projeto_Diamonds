@@ -25,7 +25,7 @@ Jupiter Notebook
 
 A base de dados a ser utilizada para a criação do modelo é dada conforme a seguir:
 
-```
+
 | Column  | Description  |
 |---|---|
 | Price  | Price in US dollars (326-18,823)  |
@@ -38,7 +38,7 @@ A base de dados a ser utilizada para a criação do modelo é dada conforme a se
 | z  | Depth in mm (0--31.8)  |
 | Depth  | Total depth percentage = z / mean(x, y) = 2 * z / (x + y) (43--79)  |
 | Table  | Width of top of diamond relative to widest point (43--95)  |
-```
+
 
 
 ### Modelo de regressão linear
