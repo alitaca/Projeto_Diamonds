@@ -55,7 +55,7 @@ Durante o desenvolvimento do modelo de regressão linear, notou-se que havia uma
 Uma das soluções pensadas para solucionar o problema foi aplicar um modelo de recomendação. Para otimizar o cálculo, foi utilizada a função *distance.cdist* da biblioteca *scipy.spatial*.
 Dispensando o tratamento de outliers, a primeira melhoria do modelo foi baseada na escolha das colunas que resultasse no menor valor de erro. A melhor combinação de colunas encontradas deu-se excluindo apenas as colunas 'depth' e 'table'.
 Então, foi a vez de se determinar qual a melhor forma de calcular o preço a partir da matriz de recomendação. O método escolhido consiste em calcular a média dos preços dos 5 diamantes mais recomendados pelo algoritmo.
-Por fim, foi a vez de se testar as métricas de distância do algoritmo de recomendação. Após os testes, a distância euclidiana produziu o melhor resultado.
+Por fim, foi a vez de se testar as métricas de distância do algoritmo de recomendação. Após os testes, a distância euclidiana produziu o melhor resultado (erro: 613,87).
 
 ## Construído com
 
